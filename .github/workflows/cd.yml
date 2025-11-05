@@ -20,6 +20,8 @@ jobs:
         script: |
           cd ~/auth-api
           git pull origin master
+          if [ -f ~/.nvm/nvm.sh ]; then . ~/.nvm/nvm.sh; fi
+          nvm use v22
           npm install
           npm run migrate up
           pm2 restart auth-api
